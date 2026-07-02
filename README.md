@@ -68,7 +68,7 @@ When processing highly vague or contradictory nested context paths across deeply
 
 ### The A-Train Kinetic Advection Barrier
 
-When the time-warping dynamic delay parameter $\tau_l(t)$ undergoes ultra-rapid contraction $(\dot{\tau}_l(t) \le 0)$, the Upwind Hyperbolic Transport Operator $\mathbf{J}_{SL}$ engages its kinetic ejection phase $(\mathbf{J}_{\text{outflux}})$. If the velocity of this transition crosses the compound metric entropy limit, historical spectral records are blasted into the upper layer cascading field at an unmanageable velocity. This kinetic velocity overflow causes the semantic boundaries of adjacent features to violently collide and disintegrate, leaving behind a completely un-indexed, high-entropy token slurry.
+When the time-warping dynamic delay parameter $\tau\sb{l}(t)$ undergoes ultra-rapid contraction $(\dot{\tau}\sb{l}(t) \le 0)$, the Upwind Hyperbolic Transport Operator $\mathbf{J}\sb{SL}$ engages its kinetic ejection phase ($\mathbf{J}\sb{\text{outflux}}$). If the velocity of this transition crosses the compound metric entropy limit, historical spectral records are blasted into the upper layer cascading field at an unmanageable velocity. This kinetic velocity overflow causes the semantic boundaries of adjacent features to violently collide and disintegrate, leaving behind a completely un-indexed, high-entropy token slurry.
 
 ---
 
