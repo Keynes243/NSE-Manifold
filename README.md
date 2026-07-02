@@ -68,7 +68,7 @@ When processing highly vague or contradictory nested context paths across deeply
 
 ### The A-Train Kinetic Advection Barrier
 
-When the time-warping dynamic delay parameter $\tau_l(t)$ undergoes ultra-rapid contraction ($\dot{\tau}_l(t) \le 0$), the Upwind Hyperbolic Transport Operator $\mathbf{J}_{SL}$ engages its kinetic ejection phase ($\mathbf{J}_{\text{outflux}}$).  If the velocity of this transition crosses the compound metric entropy limit, historical spectral records are blasted into the upper layer cascading field at an unmanageable velocity. This kinetic velocity overflow causes the semantic boundaries of adjacent features to violently collide and disintegrate, leaving behind a completely un-indexed, high-entropy token slurry.
+When the time-warping dynamic delay parameter $\tau_l(t)$ undergoes ultra-rapid contraction $(\dot{\tau}_l(t) \le 0)$, the Upwind Hyperbolic Transport Operator $\mathbf{J}_{SL}$ engages its kinetic ejection phase $(\mathbf{J}_{\text{outflux}})$. If the velocity of this transition crosses the compound metric entropy limit, historical spectral records are blasted into the upper layer cascading field at an unmanageable velocity. This kinetic velocity overflow causes the semantic boundaries of adjacent features to violently collide and disintegrate, leaving behind a completely un-indexed, high-entropy token slurry.
 
 ---
 
@@ -116,7 +116,7 @@ To transition this architecture into a testable framework, we establish four qua
 
 ## ⚠️ Foundational Architecture Limitations
 
-1. **Lack of a Global Synaptic Convergence Proof**: While Theorem 1 proves the global well-posedness of the state trajectories ($s_l(t) \in \mathcal{B}$), a rigorous mathematical proof demonstrating the global convergence of the synaptic parameters ($W_l(t)$) under the smooth $\sinh$ retraction flow remains an open challenge.
+1. **Lack of a Global Synaptic Convergence Proof**: While Theorem 1 proves the global well-posedness of the state trajectories $(s_l(t) \in \mathcal{B})$, a rigorous mathematical proof demonstrating the global convergence of the synaptic parameters $(W_l(t))$ under the smooth $\sinh$ retraction flow remains an open challenge.
 2. **Unknown Attention Equivalence Bounds**: The exact representational equivalence boundaries relative to the Transformer architecture remain unknown. Constructive mapping equations proving whether a specific non-linear competitive field can exactly simulate an arbitrary multi-head attention layer are yet to be established.
 
 ---
