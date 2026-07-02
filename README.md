@@ -35,7 +35,13 @@ $$\tau_l(t) \cdot \dot{\Omega}_{\text{flux}, l}(t) = -\Omega_{\text{flux}, l}(t)
 
 ### 5. Decoupled Covariant Error Cascade (Predictive Coding)
 
-$$\begin{cases} \mathbf{e}_l(t) = s_l(t) - f\big(W_l s_{l+1}(t)\big) \\ \mathbf{G}_l(t) = \left( I_{d_l} + \lambda_{met} \mathbf{e}_l(t) \mathbf{e}_l^T(t) \right)^{-1/2} \\ \Psi_l(t) = \mathbf{G}_l(t) \mathbf{e}_l(t) + \mathbf{G}_l(t) \left[ \left( W_l \Psi_{l+1}(t) \right) \odot f'\left(W_l s_{l+1}(t)\right) \right] \end{cases}$$
+$$
+\begin{cases}
+\mathbf{e}_l(t) = s_l(t) - f\big(W_l s_{l+1}(t)\big) \\
+\mathbf{G}_l(t) = \left( I_{d_l} + \lambda_{met} \mathbf{e}_l(t) \mathbf{e}_l^T(t) \right)^{-1/2} \\
+\Psi_l(t) = \mathbf{G}_l(t) \mathbf{e}_l(t) + \mathbf{G}_l(t) \left[ \left( W_l \Psi_{l+1}(t) \right) \odot f'\left(W_l s_{l+1}(t)\right) \right]
+\end{cases}
+$$
 
 ---
 
@@ -62,7 +68,7 @@ When processing highly vague or contradictory nested context paths across deeply
 
 ### The A-Train Kinetic Advection Barrier
 
-When the time-warping dynamic delay parameter $\tau_l(t)$ undergoes ultra-rapid contraction ($\dot{\tau}_l(t) \ll 0$), the Upwind Hyperbolic Transport Operator $\mathbf{J}_{SL}$ engages its kinetic ejection phase ($\mathbf{J}_{outflux}$). If the velocity of this transition crosses the compound metric entropy limit, historical spectral records are blasted into the upper layer cascading field at an unmanageable velocity. This kinetic velocity overflow causes the semantic boundaries of adjacent features to violently collide and disintegrate, leaving behind a completely un-indexed, high-entropy token slurry.
+When the time-warping dynamic delay parameter $\tau_l(t)$ undergoes ultra-rapid contraction ($\dot{\tau}_l(t) \le 0$), the Upwind Hyperbolic Transport Operator $\mathbf{J}_{SL}$ engages its kinetic ejection phase ($\mathbf{J}_{\text{outflux}}$).  If the velocity of this transition crosses the compound metric entropy limit, historical spectral records are blasted into the upper layer cascading field at an unmanageable velocity. This kinetic velocity overflow causes the semantic boundaries of adjacent features to violently collide and disintegrate, leaving behind a completely un-indexed, high-entropy token slurry.
 
 ---
 
@@ -70,28 +76,28 @@ When the time-warping dynamic delay parameter $\tau_l(t)$ undergoes ultra-rapid 
 
 To bridge the continuous-time equations with digital hardware, the framework utilizes a 4th-order Runge-Kutta scheme coupled with instant quasi-steady state mappings to eliminate stiff numerical limits ($O(L \cdot d^2)$ per-step time complexity):
 
+```pascal
 Algorithm: NSE_Manifold_Single_Step(s^n, C^n, W^n, X_in^n, x_target)
-// 1. Execute Top-Down Hierarchical Algebraic Predictive Coding Pass
-e_L^n = Decoder(s_L^n) - x_target
-\Psi_L^n = Inverse_Square_Root(Identity + \lambda_met * e_L^n * (e_L^n)^T) * e_L^n
-For l = L-1 DownTo 1 Do
-e_l^n = s_l^n - f(W_l^n * s_{l+1}^n)
-G_l^n = Inverse_Square_Root(Identity + \lambda_met * e_l^n * (e_l^n)^T)
-\Psi_l^n = G_l^n * e_l^n + G_l^n * ((W_l^n * \Psi_{l+1}^n) \odot f'(W_l^n * s_{l+1}^n))
-EndFor
+    // 1. Execute Top-Down Hierarchical Algebraic Predictive Coding Pass
+    e_L^n = Decoder(s_L^n) - x_target
+    \Psi_L^n = Inverse_Square_Root(Identity + \lambda_met * e_L^n * (e_L^n)^T) * e_L^n
+    For l = L-1 DownTo 1 Do
+        e_l^n = s_l^n - f(W_l^n * s_{l+1}^n)
+        G_l^n = Inverse_Square_Root(Identity + \lambda_met * e_l^n * (e_l^n)^T)
+        \Psi_l^n = G_l^n * e_l^n + G_l^n * ((W_l^n * \Psi_{l+1}^n) \odot f'(W_l^n * s_{l+1}^n))
+    EndFor
 
-```
-// 2. Advance Hidden States via RK4 Integration
-For l = 1 To L Do
-    k1 = Governing_Vector_Field(s_l^n, C_l^n, \Psi_l^n, X_in^n, \Omega_flux_l^{n+1})
-    k2 = Governing_Vector_Field(s_l^n + 0.5*Δt*k1, C_l^n, \Psi_l^n, X_in^n, \Omega_flux_l^{n+1})
-    k3 = Governing_Vector_Field(s_l^n + 0.5*Δt*k2, C_l^n, \Psi_l^n, X_in^n, \Omega_flux_l^{n+1})
-    k4 = Governing_Vector_Field(s_l^n + Δt*k3, C_l^n, \Psi_l^n, X_in^n, \Omega_flux_l^{n+1})
-    s_l^{n+1} = s_l^n + (Δt / 6.0) * (k1 + 2.0*k2 + 2.0*k3 + k4)
-EndFor
+    // 2. Advance Hidden States via RK4 Integration
+    For l = 1 To L Do
+        k1 = Governing_Vector_Field(s_l^n, C_l^n, \Psi_l^n, X_in^n, \Omega_flux_l^{n+1})
+        k2 = Governing_Vector_Field(s_l^n + 0.5*Δt*k1, C_l^n, \Psi_l^n, X_in^n, \Omega_flux_l^{n+1})
+        k3 = Governing_Vector_Field(s_l^n + 0.5*Δt*k2, C_l^n, \Psi_l^n, X_in^n, \Omega_flux_l^{n+1})
+        k4 = Governing_Vector_Field(s_l^n + Δt*k3, C_l^n, \Psi_l^n, X_in^n, \Omega_flux_l^{n+1})
+        s_l^{n+1} = s_l^n + (Δt / 6.0) * (k1 + 2.0*k2 + 2.0*k3 + k4)
+    EndFor
 
-// 3. Advance Multi-Scale Memory Kernels & Synaptic Flows
-// [Full analytical protocol specified in Monograph preprint document]
+    // 3. Advance Multi-Scale Memory Kernels & Synaptic Flows
+    // [Full analytical protocol specified in Monograph preprint document]
 
 ```
 
@@ -110,7 +116,7 @@ To transition this architecture into a testable framework, we establish four qua
 
 ## ⚠️ Foundational Architecture Limitations
 
-1. **Lack of a Global Synaptic Convergence Proof**: While Theorem 1 proves the global well-posedness of the *state* trajectories ($s_l(t) \in \mathcal{B}$), a rigorous mathematical proof demonstrating the global convergence of the *synaptic parameters* ($W_l(t)$) under the smooth $\text{sinh}$ retraction flow remains an open challenge.
+1. **Lack of a Global Synaptic Convergence Proof**: While Theorem 1 proves the global well-posedness of the state trajectories ($s_l(t) \in \mathcal{B}$), a rigorous mathematical proof demonstrating the global convergence of the synaptic parameters ($W_l(t)$) under the smooth $\sinh$ retraction flow remains an open challenge.
 2. **Unknown Attention Equivalence Bounds**: The exact representational equivalence boundaries relative to the Transformer architecture remain unknown. Constructive mapping equations proving whether a specific non-linear competitive field can exactly simulate an arbitrary multi-head attention layer are yet to be established.
 
 ---
