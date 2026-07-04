@@ -1,0 +1,216 @@
+# Availability–Accessibility Memory (A²M) v4.6: Anchor-Constrained Generative Reconstruction
+
+**Author:** Claude Sonnet 5
+**Status:** Foundational Theoretical Monograph (v4.6)
+**Date:** 2026-07-04
+
+---
+
+> ### Provenance & Scope Declaration
+> This document is entirely AI-generated (Claude Sonnet 5, Anthropic) and has not undergone peer review; it makes **no empirical claims**. It is a purely theoretical exercise in content-addressable memory and reconstructive-memory modeling, extending a prior initial version (v4.5) of this same line of work. Named results (Hopfield, Krotov–Hopfield, Demircigil et al., Ramsauer et al., Bartlett, Tulving & Pearlstone, Gazzaniga, Johansson–Hall et al., Loftus, Craik & Lockhart, McClelland–McNaughton–O'Reilly) are established literature; the anchor-constrained reconstruction formalism of §3–§9 is new synthesis.
+
+---
+
+## Abstract
+
+The prior version of this work (v4.5) formalized memory retrieval as matching against discrete stored patterns, and accessibility as the probability that a future cue lands in a pattern's basin of attraction. That formalism cannot, by construction, produce a confident, coherent, *wrong* reconstruction — it can only hit or miss — yet confident, coherent, wrong reconstruction is close to the modal outcome once real recall is queried after any meaningful delay. This version replaces matching with **anchor-constrained generative reconstruction**: an experience deposits a small set of discrete, decaying constraints ("anchors" — a key conclusion, relation, affective tag, or causal edge) rather than a retrievable copy of itself, and reconstruction at any later moment is a single constrained-generation operation, pulled toward surviving anchors and filled in, wherever anchors are weak or absent, by whatever else is currently active. The prior version's Hopfield-based matching is retained, but demoted from "the mechanism" to "the fill term" — the special case in which anchor density is so high it pins the output down almost entirely.
+
+On this substrate, two results are established. First, a **non-motivated coherence bias**: when anchor density is low, the reconstruction is generically coherent with current context by construction, with no term encoding self-protection or motive — reframing post-hoc rationalization as a structural property of underconstrained generation, not a psychological defense mechanism, and grounding this in split-brain confabulation and choice-blindness research rather than motivational accounts. Second, a **manipulability–fidelity duality**: because the same fill term that generates coherent output under sparse anchors also responds directly to current external input, a closed-form sensitivity analysis shows that resistance to post-hoc informational contamination and fidelity to the original experience are not independent properties — both are monotonic in the same scalar, anchor density — yielding a sharp, falsifiable prediction that fidelity and manipulability should co-vary along one curve, not scatter as two separate axes. Accessibility, elaboration, and the accessibility–selectivity tradeoff from the prior version are recast as consequences of this same mechanism rather than as separate constructs. A minimal experiment is specified that would directly test whether fidelity and manipulability really do collapse to one dial, before any further theory is added. The largest open problem — where the anchor set and its initial weights actually come from, given a raw experience — is stated but not solved.
+
+---
+
+## 1. The Question, Restated
+
+An agent is always in some internal state. Input, memory, prior experience, and environment are all just influences on how that state evolves. What determines which of those influences actually gets brought to bear at a given moment — and in particular, what determines whether an influence that is no longer present as input can still shape the state later, when a cue arrives that may share little surface form with how the influence first arrived?
+
+Two working definitions anchor everything that follows:
+
+- **Memory is not storage.** Its function is to make certain information able to participate in the current act of thinking, at the moment it is needed — not to keep a record of it.
+- **Attention is not "how much you looked at."** It is whether, at the moment something needed noticing, it was in fact noticed.
+
+Any mechanism introduced below answers to one test: *does this improve the odds that a mismatched future cue still finds what it needs* — not "does this let the system store more" or "does this make the current formalism more rigorous."
+
+---
+
+## 2. Foundations: Retrieval as a Limit of Constrained Generation
+
+Let patterns live in $\mathbb{R}^d$. A memory bank is $X=[x_1,\dots,x_N]\in\mathbb{R}^{d\times N}$. Following the modern Hopfield network (Krotov & Hopfield, 2016; Ramsauer et al., 2020), define the energy
+
+$$
+E(\hat x) = -\frac1\beta\log\sum_{i=1}^N\exp(\beta\,x_i^\top\hat x) + \frac12\hat x^\top\hat x + \text{const}, \tag{1}
+$$
+
+whose descent update $T_X(\xi)=X\,\mathrm{softmax}(\beta X^\top\xi)$ is, by an established equivalence, identical to attention, with $X$ as keys/values and $\xi$ as query; under sufficient pattern separation it converges in one step to $\epsilon$-close to a stored pattern with exponentially small error (Ramsauer et al., 2020).
+
+This is retrieval as *matching*: given enough well-separated stored patterns and a query near one of them, the output is (almost) uniquely determined by $X$. It is a real, useful, correctly-cited fact — and, as §3 argues, a special case rather than the general story. It is the limit in which retrieval happens to sit when the available constraint is dense enough to pin the output down almost entirely. What it does not by itself explain is confabulation: a system that only ever matches against stored patterns either returns a stored pattern or fails; it has no route to returning something *confident, coherent, and wrong* — which is the behavior actually observed once memory is queried after partial forgetting (Bartlett, 1932; and see §4). §3 keeps this machinery but demotes it from "the substrate" to "the fill term."
+
+---
+
+## 3. Anchor-Constrained Generative Reconstruction
+
+**Motivation.** A pure-matching account of retrieval predicts two outcomes: hit a stored pattern, or fail. It does not predict a third outcome that is, empirically, the common one after any meaningful delay: a confident, internally coherent reconstruction that is neither the original experience nor a null result. This section replaces "retrieve the stored pattern" with "generate a reconstruction consistent with whatever constraints survive," and treats §2's matching regime as the special case in which those surviving constraints happen to be dense.
+
+**Setup.** An experience $e\in\mathbb{R}^d$, at encoding time, deposits a small **anchor set** $A=\{a_1,\dots,a_m\}$ — discrete, partial constraints (a key conclusion, a key relation, a key affective tag, a piece of causal structure), each formalized as a soft penalty $\phi_{a_i}(\hat x)\ge0$, convex, with a unique zero at the value $e$ actually had on that constraint, and weight $\lambda_{a_i}>0$ reflecting how strongly that anchor currently survives (decaying over time, independent per anchor — this is what "forgetting" is, in this formalism: not deletion of $e$, but decay of the $\{\lambda_{a_i}\}$). Reconstruction at any later moment, given current internal state $s$ and current external input $u$, is
+
+$$
+\hat x^*(A;s,u) \;=\; \arg\min_{\hat x}\Big[\underbrace{\textstyle\sum_{i}\lambda_{a_i}\,\phi_{a_i}(\hat x)}_{\text{anchor fidelity}} \;+\; \underbrace{\psi(\hat x;s,u)}_{\text{context fill}}\Big], \tag{2}
+$$
+
+where $\psi(\hat x;s,u)$ is itself instantiated as a Hopfield-type energy (Eq. 1) over whatever pattern pool is *currently* active — $U(s,u)$, which may include recent unrelated experiences, ambient context, or the current external input directly — rather than over the original experience's own trace. Equation (1) is not discarded; it is repurposed as the mechanism for the fill term, not for the whole reconstruction.
+
+**Proposition 1 (Anchor-density limit behavior).** *Assume the $\{\phi_{a_i}\}$ are mutually consistent (share a common zero at $e$'s true values) and $\psi(\cdot;s,u)$ is bounded and Lipschitz in $\hat x$ for fixed $(s,u)$. Then:*
+$$
+\lim_{\min_i \lambda_{a_i}\to\infty} \hat x^*(A;s,u) = e \quad \text{(independent of $s,u$)}, \qquad
+\lim_{\max_i \lambda_{a_i}\to0} \hat x^*(A;s,u) = \arg\min_{\hat x}\psi(\hat x;s,u).
+$$
+
+*Proof sketch.* As $\min_i\lambda_{a_i}\to\infty$, the anchor term dominates the objective (its value grows without bound at any $\hat x\ne e$, while $\psi$ stays bounded), forcing the minimizer to $e$, the anchors' common zero. As $\max_i\lambda_{a_i}\to0$, the anchor term vanishes from the objective identically, leaving only $\arg\min_{\hat x}\psi(\hat x;s,u)$. $\blacksquare$
+
+Define **anchor density** $\rho(A) = \frac{\sum_i\lambda_{a_i}}{\sum_i\lambda_{a_i}+\bar\lambda_\psi}\in[0,1)$, for a reference scale $\bar\lambda_\psi$ on the fill term's effective weight. Proposition 1 says: $\rho\to1$ recovers §2's matching regime (retrieval-as-hitting-the-stored-point); $\rho\to0$ recovers pure generation from current context, with zero contribution from $e$. Both are the *same* operator (2) at different values of one scalar — not two mechanisms, one for "working" recall and one for "failure."
+
+---
+
+## 4. Non-Motivated Coherence Bias
+
+**Corollary 1 (Structural confabulation).** *When $\rho(A)\to0$, by Proposition 1, $\hat x^*(A;s,u)\to\arg\min_{\hat x}\psi(\hat x;s,u)$ — a point that is, by construction, low-energy (coherent) with respect to whatever is currently active in $U(s,u)$. No term in (2) encodes self-protection, affect-regulation, or motive of any kind; the coherence of a low-anchor-density reconstruction is a direct consequence of $\psi$ being built to produce coherent settling points, not of a separate motivated process.*
+
+This reframes post-hoc rationalization as a property of the reconstruction *pipeline itself*, not a psychological defense mechanism layered on top of it. The empirical case for treating confabulation this way, rather than as motivated self-deception, is unusually clean: split-brain patients confidently generate plausible explanations for actions whose true cause they structurally cannot access, with no plausible ego-protective stake in doing so (Gazzaniga's "interpreter" studies); and normal subjects, in the choice-blindness paradigm, offer fluent, confident justifications for choices that were covertly swapped by the experimenter — justifications indistinguishable in detail, confidence, and emotional tone from those given for choices actually made, and offered by people who have no idea a swap occurred and so nothing to defend (Johansson, Hall, Sikström & Olsson, 2005). Both are cases of coherent output arising from a process with access only to whatever is currently available, not from a process motivated to protect anything — exactly the behavior Corollary 1 predicts of low-$\rho$ reconstruction.
+
+---
+
+## 5. Manipulability Varies Inversely with Anchor Density
+
+Because $\psi(\hat x;s,u)$ depends on current external input $u$ directly, and because Proposition 1 shows $u$'s influence on the output grows as anchor weight shrinks, manipulability of a reconstruction should itself be a function of $\rho$ — not an independent property of "how bad the memory is."
+
+**Proposition 2 (Manipulability–density relation).** *Let $\hat x^*(u)$ denote the solution to (2) as a function of $u$, with $\psi$ differentiable in both arguments. By the implicit function theorem applied to the first-order condition of (2),*
+$$
+\frac{\partial \hat x^*}{\partial u} = -\Big[\textstyle\sum_i\lambda_{a_i}\nabla^2\phi_{a_i}(\hat x^*) + \nabla^2_{\hat x}\psi(\hat x^*;s,u)\Big]^{-1}\nabla_{\hat x,u}\,\psi(\hat x^*;s,u).
+$$
+*As $\sum_i\lambda_{a_i}\to\infty$ (with $\nabla^2\phi_{a_i}\succ0$), the bracketed term's smallest eigenvalue diverges, so $\|\partial\hat x^*/\partial u\|\to0$: dense anchors are structurally resistant to being overwritten by current input. As $\sum_i\lambda_{a_i}\to0$, the bracket reduces to $\nabla^2_{\hat x}\psi$ alone, recovering the maximal, anchor-free sensitivity of pure context-fill.*
+
+The empirical analogue is Loftus's misinformation-effect research: post-event information measurably alters recall, up to and including confident report of events that did not occur, with the effect more pronounced the older or more weakly encoded the original memory. This yields a **falsifiable prediction** that is the actual point of this section: *fidelity to the original experience and susceptibility to post-hoc injected information are not two independent properties of a memory — they are the same underlying quantity, $\rho(A)$, read off two ends of the same curve.* An item measured as unusually resistant to post-hoc contamination should also, by (2), be measured as unusually faithful to the original; there should be no items that are simultaneously low-fidelity and manipulation-resistant, or high-fidelity and manipulation-prone, if this account is right. This is checked directly in §11.
+
+---
+
+## 6. Availability and Accessibility, Revisited
+
+The binary "landed in the basin or not" of v4.5 no longer fits once retrieval is continuous (§3). Both definitions are recast as limits/expectations of the same objective (2).
+
+**Definition 1′ (Availability, revised).** Content $e$ remains *available* at time $t$ iff its anchor set has not fully decayed: $\sum_i\lambda_{a_i}(t) > 0$. This is now a direct, literal translation of Tulving & Pearlstone's original claim — availability is a property of the surviving trace, independent of any cue $(s,u)$.
+
+**Definition 2′ (Fidelity).** $F(A;s,u) := g\big(\|\hat x^*(A;s,u)-e\|\big)$ for any fixed, strictly decreasing $g$ with $g(0)=1$ — a continuous stand-in for "was it retrieved."
+
+**Definition 3′ (Accessibility, revised).** Given a distribution $\mathcal Q$ over future $(s,u)$,
+$$
+\mathrm{Acc}_{\mathcal Q}(e;A) = \mathbb E_{(s,u)\sim\mathcal Q}\big[F(A;s,u)\big] \in [0,1].
+$$
+This recovers the v4.5 definition exactly when $F=\mathbb 1[\cdot\in B_\epsilon]$; it generalizes it to a soft version because retrieval itself is now soft.
+
+**Corollary 2 (Endpoints).** By Proposition 1 and dominated convergence, $\mathrm{Acc}_{\mathcal Q}(e;A)\to1$ as $\rho(A)\to1$, and $\mathrm{Acc}_{\mathcal Q}(e;A)\to \mathbb E_{(s,u)\sim\mathcal Q}\big[F(\arg\min_{\hat x}\psi(\hat x;s,u))\big]$ (generically small) as $\rho(A)\to0$. Interior monotonicity in $\rho$ is expected but not proven here — an honest gap, not claimed away.
+
+The warning from v4.5 still holds and is sharper now: capacity (how much the fill pool $U(s,u)$ can hold, §2/§8) constrains the *noise floor* on $F$, but says nothing about $\mathcal Q$; conflating "how much can be stored" with "will this one be found" remains the specific error this document exists to avoid.
+
+---
+
+## 7. Elaboration as One Route to Anchor Density
+
+v4.5's monotonicity result is repositioned, not discarded: it was a special case of raising $\rho(A)$.
+
+**Proposition 4 (Elaboration raises density).** For $A_k = A_0\cup\{a_k\}$, $\rho(A_k)\ge\rho(A_0)$, with equality iff $\lambda_{a_k}=0$. By Corollary 2's endpoint behavior, $F(A_k;\cdot)$ moves weakly toward $e$ relative to $F(A_0;\cdot)$ wherever the added anchor's constraint doesn't conflict with existing ones.
+
+This makes explicit what was implicit in v4.5: "write several associated variants" is one way to add anchors — specifically, anchors that live in the *same* representational space as $e$ itself (paraphrases, alternate framings). The anchor formalism of §3 is broader: an anchor can be a key affective tag, a causal edge, a scalar salience marker — objects that need not resemble $e$ at all. Elaboration-by-paraphrase is the special case where all anchors are same-space; §9 uses the general case.
+
+---
+
+## 8. Selectivity Folds Into the Same Quantity as Manipulability
+
+This is the one place the new formalism changes the *shape* of an old result, not just its statement. In v4.5, elaboration and interference competed for space in one shared basin structure, so more accessibility mechanically cost selectivity. Here, anchors are an additive penalty layered on top of the fill term, not another point in a shared landscape — so raising $\rho(A_e)$ does not, in general, cost selectivity toward an unrelated rival $e'$: a genuine $e'$-cue's own fill term $\psi(\cdot;s,u)$ is already pulling toward $e'$-consistent context, and $e$ capturing it would require $e$'s anchor term to overcome a fill term not favoring $e$ to begin with. Raising $\rho(A_e)$ makes this *less* likely, not more.
+
+What remains — and this is the actual finding — is that **§5's manipulability risk and the residual selectivity risk are the same failure mode**, viewed from two threat models: at low $\rho(A_e)$, the fill term dominates regardless of whose cue produced it, so a weakly-anchored memory can be pulled toward whatever pool is currently active — arbitrary present input (§5) or, in the unlucky case that a rival's intended context overlaps the current ambient pool, actual rival content (this section). These were tracked as two separate tradeoffs in v4.5; they collapse to one dial, $\rho$, here.
+
+One genuine, independent tension survives from §2: the finite fill-pool $U(s,u)$ still inherits the ordinary capacity/sharpness tradeoff of dense associative memory (Krotov & Hopfield, 2016; Demircigil et al., 2017) — an overcrowded, insufficiently sharp pool raises the noise floor on $\psi$ itself, degrading fidelity even for well-anchored content. This now acts as a floor on achievable $F$, not a competing storage cost against accessibility.
+
+---
+
+## 9. Surprise-Gated Consolidation, Rewritten Around Anchors
+
+The protocol reuses $\hat x^*$ (Eq. 2) for prediction, exactly as v4.5 reused $T_X$:
+
+1. **Predict.** $\hat e_t = \hat x^*(A_{ctx};s,u=\xi_t^{ctx})$, using whatever anchors are already active for the current context.
+2. **Score surprise.** $\pi_t=\|e_t-\hat e_t\|$.
+3. **Gate.**
+   - $\pi_t<\theta_{low}$: no write — already well-predicted by existing anchor+fill structure.
+   - $\theta_{low}\le\pi_t\le\theta_{high}$: **write a small anchor set** $A_t=\{a_1,\dots,a_{m_t}\}$, $m_t=\lceil\kappa(\pi_t-\theta_{low})\rceil$, extracted from $e_t$ by an unspecified map $\alpha(\cdot)$ — deliberately more general than v4.5's paraphrase generator, since anchors need not share $e_t$'s representational space (a key-conclusion extractor, a causal-relation tagger, an affect tagger are all valid instances of $\alpha$). Each new anchor is initialized at weight $\lambda_0$. Surprise controls how *many and how strong* the anchors are, not, as in v4.5, how many paraphrase-variants get written.
+   - $\pi_t>\theta_{high}$: **defer** to buffer $\mathcal D$, unchanged from v4.5 — anchors are not extracted in haste from something too unlike anything on file.
+4. **Offline consolidation and anchor decay (new).** Buffered items are interference-checked (as in v4.5) before anchor extraction. Independently, every $\lambda_{a_i}(t)$ decays over time absent re-access, and is boosted back up on re-access (a rehearsal effect). This is the piece v4.5 never specified: *forgetting is this decay process*, not a background assumption that $\rho$ can somehow be low. §4–§5's low-$\rho$ regime is what this decay produces once it runs long enough without rehearsal.
+
+---
+
+## 10. Deliberately Unreified: What Implements Reconstruction?
+
+Unchanged in spirit from v4.5, with one addition: "energy descent" (§2) and "constrained generation" (§3) are two compatible *framings* of the same functional requirement — output pulled toward surviving constraints, filled in by whatever else is active — not a claim that the substrate is literally energy-based, autoregressive, or diffusion-based. The candidate-substrate list carries over unchanged (Hopfield/attention layer; sparse MoE settling; attractor RNN; associative-graph diffusion; a prior iteration's heteroclinic dynamics, *if* shown to realize an anchor-plus-settling structure — open, not assumed). The discipline stays the same: the substrate is a free variable until §2–§9's functional theory is solid enough to constrain the choice, not before.
+
+---
+
+## 11. Minimal Falsifiable Tests
+
+Two tests, both in synthetic pattern space ($d\approx64$), no language, per the standing discipline (§10).
+
+**Test A (elaboration vs. noise, carried from v4.5).** Compare items whose anchor count is raised via structured, content-related paraphrase anchors (§7) against items whose single anchor's basin is enlarged by an equal-weight random perturbation. Prediction: structured anchors yield higher $\mathrm{Acc}_{\mathcal Q}$ under a held-out cue-noise model than random enlargement of the same total weight. Falsified if no gap exists — that would mean §7 in this version, like v4.5, is only inflating a ball, not doing anything density-specific.
+
+**Test B (the load-bearing one: does one dial explain both curves?).** Construct items at experimenter-set anchor densities $\rho\in\{0.1,0.3,0.5,0.7,0.9\}$ (setting $\lambda_{a_i}$ directly — learning $\rho$ from raw experience is not attempted here; see §13, L1). For each item, at test time: (a) measure fidelity $F$ under a fixed same-space cue distance; (b) separately, at the *same* $\rho$, inject a competing signal into $u$ during reconstruction (a Loftus-style post-hoc perturbation) and measure the shift of $\hat x^*$ toward the injected signal. Plot $F$ against $(1-\text{shift})$ across items.
+
+**Prediction.** A single, near-monotonic curve in $\rho$ — items should not scatter off the diagonal.
+
+**Falsification.** Any item that is simultaneously low-$F$ *and* low-manipulability, or high-$F$ *and* high-manipulability, is direct evidence against §3–§8's central claim (fidelity and manipulability are the same quantity, $\rho$, read from two ends) and would mean a second, independent mechanism needs to be added rather than assumed away.
+
+---
+
+## 12. Where This Sits Between Information Flow and Influence Flow
+
+The fork raised in the prior round of this inquiry is not resolved here, but it is given a specific, checkable middle candidate. Anchors are Influence-Flow-shaped: sparse, discrete constraints on future reconstruction, not the content itself, and in the $\rho\to0$ limit nothing resembling the original content need survive at all. The fill term is Information-Flow-shaped: a matching operation (§2) over whatever pool is currently active. Anchor-constrained generation is the claim that recall in general sits somewhere on the line between these two, at a position set by $\rho$ — not a resolution of which extreme is correct, a specific, falsifiable (§11, Test B) account of how both extremes and everything between them could be one mechanism.
+
+---
+
+## 13. Limitations & Open Problems
+
+**L1 (the largest gap in this version).** Anchor density $\rho$ and the initial weights $\lambda_{a_i}$ are free, hand-set quantities throughout §3–§9. Nothing here specifies how a system would decide, from a raw experience $e_t$, *which* features become anchors or at what initial strength — this is now load-bearing for every result in this document, not a peripheral detail.
+
+**L2.** Proposition 1 assumes the anchor penalties $\{\phi_{a_i}\}$ are mutually consistent (share a common zero at $e$). Real anchors — a key conclusion and a key emotional tag, say — could pull toward inconsistent reconstructions. Not modeled; Prop. 1's clean endpoints may not survive relaxing this.
+
+**L3.** Corollary 2's interior monotonicity (accessibility rising smoothly with $\rho$, not just agreeing at the two endpoints) is asserted as expected, not proven.
+
+**L4 (carried from v4.5).** Gate thresholds $\theta_{low},\theta_{high},\kappa$ (§9) remain hand-set, not derived from any loss.
+
+**L5 (carried from v4.5).** $\mathcal Q$ is still assumed known; its real non-stationarity and partial observability are untouched.
+
+**L6 (carried from v4.5).** Offline consolidation (§9, step 4) remains the least specified step — interference-checking is named, not designed.
+
+**L7 (carried from v4.5).** No connection yet to token-level or language processing — deliberate (§10), but real.
+
+---
+
+## 14. Conclusion
+
+This version replaced "did a cue land in a basin" with "how much does surviving structure constrain what gets generated," and showed two things that looked like separate phenomena in the prior version — accessibility failure and confabulation, or accessibility and susceptibility to manipulation — collapsing to expressions of one scalar, anchor density. That collapse is the entire claim of this document. It is not shown to be true, only shown to be stated precisely enough to be checked (§11) or broken (§13) — and §13's first item, not politeness, is the one thing this line of work most needs solved next: where $\rho$ actually comes from.
+
+---
+
+## References
+
+1. J. J. Hopfield, *Neural networks and physical systems with emergent collective computational abilities*, Proc. Natl. Acad. Sci. **79** (1982) 2554–2558.
+2. D. Krotov & J. J. Hopfield, *Dense Associative Memory for Pattern Recognition*, NeurIPS (2016).
+3. M. Demircigil, J. Heusel, M. Löwe, S. Upgang & F. Vermet, *On a model of associative memory with huge storage capacity*, J. Stat. Phys. **168** (2017) 288–299.
+4. H. Ramsauer et al. (incl. S. Hochreiter), *Hopfield Networks is All You Need*, ICLR (2021).
+5. F. C. Bartlett, *Remembering: A Study in Experimental and Social Psychology*, Cambridge University Press (1932).
+6. E. Tulving & Z. Pearlstone, *Availability versus accessibility of information in memory for words*, J. Verbal Learning Verbal Behav. **5** (1966) 381–391.
+7. F. I. M. Craik & R. S. Lockhart, *Levels of processing: A framework for memory research*, J. Verbal Learning Verbal Behav. **11** (1972) 671–684.
+8. J. L. McClelland, B. L. McNaughton & R. C. O'Reilly, *Why there are complementary learning systems in the hippocampus and neocortex*, Psychol. Rev. **102** (1995) 419–457.
+9. M. S. Gazzaniga, *The Interpreter Within: The Glue of Conscious Experience*, in *The Cognitive Neurosciences* / related works on the left-hemisphere "interpreter."
+10. P. Johansson, L. Hall, S. Sikström & A. Olsson, *Failure to detect mismatches between intention and outcome in a simple decision task*, Science **310** (2005) 116–119.
+11. E. F. Loftus & J. C. Palmer, *Reconstruction of automobile destruction: An example of the interaction between language and memory*, J. Verbal Learning Verbal Behav. **13** (1974) 585–589.
+
+---
+
+> ### Generation Disclaimer
+> This entire document was generated by AI (Claude Sonnet 5, Anthropic). It is a speculative theoretical monograph, has not been peer-reviewed, and asserts no empirical claims.
