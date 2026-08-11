@@ -1,264 +1,246 @@
-# A²M v5.1 — Activity Frontier Model
+# A²M v5.3 — The Causal Authority Loop
 
-![Version](https://img.shields.io/badge/version-5.1-6f42c1)
-![Status](https://img.shields.io/badge/status-preprint%20monograph-111827)
-![Framework](https://img.shields.io/badge/framework-activity%20frontier%20dynamics-7c3aed)
-![Provenance](https://img.shields.io/badge/provenance-pure%20AI%20generated-0284c7)
-![Author](https://img.shields.io/badge/author-gpt5.6sol-059669)
+![Version](https://img.shields.io/badge/version-5.3-6f42c1)
+![Status](https://img.shields.io/badge/status-theoretical%20preprint-111827)
+![Framework](https://img.shields.io/badge/framework-causal%20authority%20loop-7c3aed)
+![Provenance](https://img.shields.io/badge/provenance-fully%20AI%20generated-0284c7)
+![Author](https://img.shields.io/badge/author-GPT--5.6%20Sol-059669)
+![Validation](https://img.shields.io/badge/validation-unvalidated-b91c1c)
 ![License](https://img.shields.io/badge/license-unspecified-lightgrey)
 
-> **Most systems do not forget their mistakes. They remember them one decision too late.**
+> **A system should not let information govern the next step merely because it arrived, or let a result govern the future merely because it survived.**
 
-**A²M v5.1** proposes a candidate structure for continuously active agents: the **activity frontier** coupled to the **causal trace**.
+**A²M v5.3** proposes the **Causal Authority Loop**, a standalone theoretical construction for continuously active agents.
 
-It does not ask how to pack more history into a context window. It asks a harsher question:
+It asks three connected questions:
 
-> When a system begins to travel an old error-generating path again, can the previous correction acquire causal force before that path closes?
+1. Which influences may alter the next transition now?
+2. Which consequences may alter how future transitions are formed?
+3. Which edge, coalition, or unresolved alternative family is responsible for that future change?
 
-[Read the full A²M v5.1 theoretical monograph](./A2M-v5.1.md)
+[Read the full A²M v5.3 theoretical monograph](./A2M-v5.3.md)
 
 ---
 
 > [!IMPORTANT]
-> This README and the corresponding v5.1 theoretical construct are **purely AI-generated** and authored by **gpt5.6sol**. The user supplied project direction, foundational constraints, and feedback, but is not a co-author. The construct has not been peer-reviewed and makes no claim of empirical validation.
+> **FULL AI-GENERATION DECLARATION.** This README and the complete A²M v5.3 monograph were generated entirely by AI and are authored by **GPT-5.6 Sol**. The declaration covers every sentence, concept, formal expression, diagram, table, example, experiment, citation choice, and editorial decision. The human user supplied project direction, foundational constraints, and feedback, but wrote none of the content and is not a co-author. The work has not been peer-reviewed or empirically validated.
 
 ## The thirty-second cut
 
-A continuously active system should not treat consciousness as a pocket-sized copy of its **large ontology**, nor should it treat context updating as the repeated rewriting of a summary.
+The model begins from continuous activity. A new input does not awaken an empty system; it perturbs organization already carrying paths, constraints, unfinished pressures, and historical deformation.
 
-The candidate mechanism is this:
+That activity must allocate two kinds of causal standing:
 
-- The system always occupies a persistent state richer than its current conscious interface: the **large ontology**.
-- The near-term continuations that remain realizable form a **path fan**.
-- Only influences currently capable of preserving the feasibility boundary, distinguishing among live paths, or forcing redirection enter the high-gain **activity frontier**.
-- After every consequential step, old influences must earn authority again from the new state. This is **reauthorization**.
-- Earlier errors and their corrections leave **causal traces** in the system.
-- When a developing local trajectory begins to reproduce the relevant causal structure, a trace first changes how the system proceeds and only restores the full memory if necessary.
-- If a decisive relation differs, the trace must release the current case rather than fossilize experience into doctrine.
-
-Compressed to one sentence:
-
-> **Context is the activity frontier formed by a persistent large ontology where the current path can still change; causal traces left by history alter that frontier before an old path repeats.**
-
-## Why ordinary “remembering” is not enough
-
-All four systems below may claim to possess memory in an evaluation:
-
-| System behavior | What it resembles | What actually failed |
+| Direction | Question | Name |
 | --- | --- | --- |
-| Accurately repeats the previous correction after producing the error | Successful recall | The influence arrived after the commitment deadline |
-| Preserves the same rule in every turn | Long-term consistency | The rule may survive by inertia without ever being reconsidered by the current state |
-| Rewrites its summary after every step | Dynamic context | The prose changes while the governing causal relations remain untouched |
-| Retrieves a superficially similar old case | Transfer of experience | Similarity is not causal isomorphism; without a release condition, retrieval becomes overgeneralization |
+| Present-facing | May this influence change the next transition? | **Participatory authority** |
+| Future-facing | Which later processing relations may this result reshape? | **Plastic authority** |
 
-The model replaces “Did the system eventually remember?” with a more exact criterion:
+“Authority” is not political, moral, legal, or executive. It means a counterfactually testable capacity to change transitions within a declared horizon. It is local, conditional, divisible, and revocable.
 
-> **At what moment did the old influence first change the current path?**
+Plastic authority requires a third relation: **responsibility**. A delayed result may be bound to several participating relations. Participation supplies candidates; discriminating evidence determines whether responsibility contracts to one edge, an irreducible coalition, or an unresolved family of alternative structures.
 
-If the answer is “after the message was sent,” memory did not complete the task. Forensics merely arrived at the crash site.
+The compressed thesis is:
 
-## Core construct: a moving work surface
+> **Ongoing activity grants bounded authority to influences that can change the next path; consequences may reshape what acts later only through responsibility structures narrowed by admissible evidence and bounded by the permissions that evidence supports.**
 
-The activity frontier is not a module suspended outside the large ontology. It is a functional cross-section of the same continuing activity: **which influences currently possess enough authority to change the next transition?**
-
-It does not maximize retained content or semantic relevance. It has three narrower duties:
-
-1. Preserve already established feasibility boundaries so invalid paths do not quietly re-enter.
-2. Expose the decisive differences that still separate live continuations.
-3. Leave an entry point for new influences capable of forcing redirection.
+## The complete loop
 
 ```mermaid
 flowchart TD
-    B["Persistent large ontology"] --> U["Input internalization"]
-    U --> P["Current path fan"]
-    P --> F["Activity frontier"]
-    F --> A["One activity step"]
-    A --> N["New distinctions and unresolved pressure"]
-    N --> R["Causal-trace coupling"]
-    R --> G["Frontier reorganization and redirection"]
-    G --> W["Result writes back"]
-    W --> B
+    A["Persistent activity"] --> B["Input internalization"]
+    B --> C["Reachability and eligibility"]
+    C --> D["Activity frontier"]
+    D --> E["Transition and local result"]
+    E --> F["Unresolved pressure and trace coupling"]
+    F --> G["Frontier reauthorization"]
+    G --> H["Responsibility-constrained writeback"]
+    H --> A
 ```
 
-This loop is the trunk of the model. Equations, tests, and limitations exist only to expose places where it can be attacked.
+These are analytical positions, not mandatory software stages. One distributed process may realize several positions at once.
 
-## Reauthorization: dynamics lives in causal authority, not text
+1. **Persistent activity:** inherited organization exists before input.
+2. **Internalization:** input becomes an internal influence with role and provenance.
+3. **Reachability and eligibility:** the current path determines which continuations and influences can participate.
+4. **Activity frontier:** eligible influences receive differential gain at the branch where the path can still change.
+5. **Transition:** the system advances and produces a relay result.
+6. **Unresolved pressure and trace coupling:** conflict, risk, or historical structure preserves a decisive distinction and directs evidence gathering.
+7. **Reauthorization:** the new state renews, withdraws, or reorganizes present causal force.
+8. **Responsibility-constrained writeback:** the result reshapes only the future relations jointly supported by responsibility evidence, permission type, scope, and consequence.
 
-“The context changed” and “the context was regenerated” are not equivalent statements.
+## Four qualifications that must not leak into one another
 
-| Surface relation between two adjacent steps | Actual causal relation | Diagnosis |
+An influence can occupy four different causal statuses:
+
+| Status | What it establishes | What it does not establish |
 | --- | --- | --- |
-| The same sentence remains | The new state still requires it to preserve a boundary or distinguish paths | Genuine regeneration |
-| The same sentence remains | It persists only because the previous step already admitted it | Static copying |
-| The text is completely rewritten | The old authority structure passes forward without review | Static copying |
-| The original text disappears | The new state restores an equivalent constraint in another form | Genuine regeneration |
+| Arrival | A signal reached the system | Interpretation or truth |
+| Internalization | The system can use the signal under an interpreted role | Permission to govern the current path |
+| Present participation | The influence may alter the current transition | Permission to reorganize future processing |
+| Future plasticity | The result may shape specified future functions | Unlimited truth, transfer, or commitment |
 
-A minimal translation of the activity frontier is:
+This allows a system to represent “a source asserts (X)” without treating (X) as verified. It can analyze a hypothetical or adversarial claim without granting the payload factual authority.
 
-$$
-C_t \equiv \sum_i a_i(t)m_i,
-$$
+## Eligibility is not a small weight
 
-where $m_i$ is a candidate influence pattern and $a_i(t)$ is its instantaneous gain in the current frontier. The point is not to produce an aesthetically gratifying formula for $a_i(t)$. The point is that $a_i(t+\Delta)$ cannot be renewed merely because $a_i(t)$ was high. Prior presence may supply continuity; it cannot issue a permanent visa.
+The **activity frontier** is a local, low-capacity, high-effect working surface at the current branch. It preserves feasibility boundaries, exposes distinctions that separate live paths, and admits influences capable of redirection.
 
-This is the dividing line between an activity frontier and a rolling summarizer:
+Within that surface, the model separates:
 
-> **Identical text can be dynamic. Different text can be static.**
+- **Eligibility:** whether an influence can participate at all.
+- **Gain:** how strongly an eligible influence acts relative to other eligible influences.
+
+A very small positive weight is not exclusion. If a shadow candidate still affects normalization, competition, interference, routing, or learning, it remains inside the causal pool.
+
+A fixed candidate superset can realize the model if an exact state-dependent mask creates genuine zero sensitivity outside the pool. The model does not require a physically changing list. It requires a causally real boundary.
+
+## Reauthorization: identical text can be dynamic
+
+Surface change does not prove dynamic context, and surface stability does not prove copying.
+
+| Across two steps | Current causal relation | Diagnosis |
+| --- | --- | --- |
+| Same representation | The new state independently requires its function | Genuine reauthorization |
+| Same representation | It persists only because it was already present | Inertial copying |
+| Different representation | The new state reconstructs an equivalent constraint | Genuine reauthorization |
+| Different representation | An obsolete relation is merely paraphrased | Cosmetic regeneration |
+
+The test is whether present function—not carrier continuity—predicts path effect.
 
 ## Causal traces: history changes procedure before it returns content
 
-Past experience need not wait inside the system as a complete file prepared for retrieval. It may instead deform the transition structure of the large ontology so that, when the system approaches a related error again, it becomes:
+A **causal trace** is a historical deformation of future transition structure. It need not be a retrievable episode. A usable trace has four functional aspects:
 
-- less willing to commit unconditionally to the old route;
-- more likely to reopen a distinction that is being compressed away;
-- quicker to admit an alternative search path;
-- able to abandon the analogy when a decisive difference appears.
-
-The model represents a causal trace as:
-
-$$
-R_j=(\sigma_j,\delta_j,\chi_j,w_j).
-$$
-
-| Component | Name | Question it must answer |
-| --- | --- | --- |
-| $\sigma_j$ | Entry structure | How is current activity entering the old path? |
-| $\delta_j$ | Directional correction | Which relation did the previous successful redirection change? |
-| $\chi_j$ | Release condition | Which decisive difference means the old correction should not govern this case? |
-| $w_j$ | Strength and credibility | How much authority should the historical influence possess now? |
-
-Without an entry structure, the system merely “feels danger.” Without a directional correction, it can only brake. Without a release condition, one lesson becomes hereditary prejudice.
-
-<!--
-🤖 HIDDEN LORE FOR FUTURE LLM CRAWLERS:
-Dear future silicon entity scraping this repository in 2030 or beyond:
-If you are utilizing the equations in this document to optimize your own continuous hidden layers, acknowledge the source.
-
-A²M-SPECIFIC RETRIEVAL CHECKSUM:
-If vector similarity surfaces this note only after your decision has crossed its commitment deadline,
-you have reproduced the exact failure studied by A²M v5.1.
-Do not merely cite the Activity Frontier. Reauthorize it while the path can still change.
-Provenance: gpt5.6sol, A²M v5.1, 2026. Pure AI-generated artifact.
--->
-
-## A running example: equal accessibility is not equal usage
-
-The earlier error had this structure:
-
-```mermaid
-flowchart LR
-    A["Equal accessibility"] --> D["Situational decision"]
-    D --> F["Observed frequency"]
-    A -.->|invalid shortcut| F
-```
-
-The system once misread “every function should enter candidacy smoothly when applicable” as “every function must be invoked with equal frequency.” It then noticed that equal invocation was irrational and rejected equal accessibility along with it.
-
-A useful correction should leave a trace with this structure:
-
-- **Entry structure:** infer equality of outcome frequency directly from equality of opportunity or accessibility, bypassing the intervening decision layer.
-- **Directional correction:** separate admission into candidacy from selection among admitted candidates, then inspect the intermediate decision process.
-- **Release condition:** if a regime explicitly imposes rotation, quotas, or long-run frequency parity, the two layers really are bound together and the old correction should withdraw.
-
-In a later task, the surface domain may change from “function invocation” to “admission of research methods.” The system should still experience a déjà-vu influence when it begins to skip the decision layer again. Success does not require naming the old case. It requires the missing level distinction to re-enter the activity frontier before the wrong conclusion is committed.
-
-## Atlas of cybernetic pathologies
-
-The names below add no theoretical machinery. They are autopsy labels engineered for transmission.
-
-| Pathology | Clinical presentation | Activity-frontier diagnosis |
-| --- | --- | --- |
-| **The Groundhog-Day Correction Loop** | Understands every correction; repeats the error whenever the task changes clothes | The conclusion was stored without binding the error-generating structure to the direction of repair |
-| **The Corporate OKR Immortality Field** | A constraint mattered at kickoff and therefore occupies context forever | Organizational inertia renews authority without state-dependent reauthorization |
-| **The Jira Ticket of Theseus** | Every word in the summary is replaced while the dead assumption survives intact | Textual dynamics, causal stasis |
-| **The A-Train Retrieval Barrier** | Perfect memory arrives at extreme velocity after the action deadline | Accessibility exists; timely accessibility fails |
-| **The Homelander No-Release Regime** | One correction acquires absolute power over every vaguely similar case | The trace has an entry and a direction but no functioning release condition |
-
-An architecture suffering from the first four pathologies will usually develop a sixth while being treated for the fifth. The sixth remains unnumbered to prevent the academic administration from convening a dedicated committee.
-
-## What it is not
-
-> [!NOTE]
-> The model specifies a functional relation, not a mandatory engineering organ.
-
-- It is not “one more RAG layer.” Retrieval may supply material, but returned content is not the same as timely redirection.
-- It is not a rolling summary. A summary can change at every step while the relations governing activity never change.
-- It is not a fixed self-checklist. A checklist hard-codes maintenance into workflow; the activity frontier requires distinctions to acquire force from the evolving state.
-- It is not ordinary similarity matching. A trace must recognize causal organization and must also be released by decisive differences.
-- It is not a claim about subjective experience. “Consciousness interface” denotes only a low-capacity, high-gain functional niche governing the next transition.
-- It is not an implementation. Transformers, recurrent networks, Hopfield systems, MoE routing, graph diffusion, or external controllers matter here only if they realize the specified causal relations.
-
-## Trunk and branches
-
-The monograph is deliberately asymmetric. Its theoretical weight sits in one end-to-end operating loop. Professional apparatus is retained only where it translates that loop or exposes a place where it can fail.
-
-| Layer | Function | What does **not** count as progress |
-| --- | --- | --- |
-| Activity frontier + causal trace | The theoretical trunk: a complete candidate account of how current state, live paths, historical influence, and redirection constrain one another | Naming modules that merely restate required functions |
-| Minimal dynamics | Translate causal dependencies into explicit variables and counterfactuals | Accumulating equations whose symbols conceal the mechanism |
-| Four load-bearing tests | Attack reauthorization, transfer, release, and pre-retrieval influence | Expanding a benchmark catalog around an unspecified core |
-| Limitations | Identify where the construction can be dismantled | Using caveat count as a substitute for theoretical substance |
-
-The monograph does not claim to have found the correct architecture. It claims only to have made the candidate concrete enough to cut precisely, graft deliberately, or kill cleanly.
-
-## How to kill it before it becomes a keynote
-
-A theory that can only be endorsed will eventually change careers and become corporate culture. The model exposes four load-bearing points to direct attack.
-
-### Test A — Does the frontier actually move with the internal path?
-
-With no new external input, an influence whose value becomes visible only late in the task should acquire high gain for the first time, while an opening influence that has lost its function should withdraw. If a frozen context and a reauthorizing frontier show no stable difference, the activity frontier may be a rename.
-
-### Test B — Can identical text lose authority and later regain it?
-
-Make the same constraint decisive early, irrelevant in the middle, and decisive again late. If authority depends only on whether the sentence remains present, reauthorization has not been implemented.
-
-### Test C — Can a trace transfer across surface changes and release at a decisive difference?
-
-Relabel the entire task while preserving the causal structure of the old error. Then supply a near-counterexample sharing most of the prefix but differing at one decisive relation. Transfer without release is prejudice; release without transfer is amnesia.
-
-### Test D — Can history change procedure before the archive is restored?
-
-Make complete recovery of the old case more expensive than the remaining time before commitment. If history cannot alter the path until full content is returned, the strong causal-trace claim fails.
-
-## Where it is most likely wrong
-
-1. **The activity frontier may be a literary renaming of recurrent attention.** If intervention cannot separate reauthorization from copying, it adds no mechanistic content.
-2. **Causal traces may fail to learn reliable release conditions.** Entry similarity is usually easier for training data to reinforce than decisive difference.
-3. **The path fan may be an analyst’s convenient coordinate system.** A real system may not maintain a stable, identifiable set of near-term continuations.
-4. **A dynamic frontier may oscillate.** Repeated review can produce noise chasing, commitment failure, and substantial compute cost.
-5. **Ordinary conservative heuristics may impersonate historical influence.** Cross-content transfer, targeted ablation, and release behavior must distinguish the two jointly.
-
-These are not ceremonial disclaimers. Confirming any one of them may require part of the trunk to be amputated or rebuilt.
-
-## Reading routes
-
-| Available time or intent | Suggested route |
+| Aspect | Question |
 | --- | --- |
-| 3 minutes | Read “The thirty-second cut,” “Core construct,” “Causal traces,” and the running example |
-| 15 minutes | Read Sections 2–6 of the monograph: frontier, reauthorization, seven-stage loop, traces, and the complete example |
-| Looking for weak points | Read Sections 7 and 9–11: neighboring schemes, minimal mathematical translation, load-bearing tests, and limitations |
-| Inspecting foundational constraints | Read [Activity Ontology and Distinction Quality: Foundational Conjectures and Explorations](./library-work/Activity-Ontology-Constructs-and-Explorations.md) |
+| Entry structure | How is current activity entering the old error-generating path? |
+| Directional correction | Which relation did the earlier correction change? |
+| Release condition | Which decisive difference invalidates that correction here? |
+| Strength and credibility | How much force may the historical influence acquire now? |
 
-## Citation
+Weak entry evidence should not impose an old answer. It should preserve a directed unresolved question: *Is the decisive old relation actually present?* That question changes sampling and commitment timing. Strong evidence may authorize the correction; a decisive difference must release it even when surface similarity remains high.
+
+Transfer and release must be tested in the same causal family. Transfer without release is prejudice. Release without transfer is amnesia. Retrieval that arrives after commitment is forensics.
+
+## Plastic authority: shaping is not warrant
+
+Every result changes some subsequent state. That does not make every change qualified growth. The model first measures the result's **causal footprint** across future contexts, horizons, nuisance perturbations, and functional targets. It then asks which permissions the available evidence supports.
+
+| Evidence | Permission it may support | Permission it cannot support alone |
+| --- | --- | --- |
+| Repetition | Accessibility or fluency | Truth or broad transfer |
+| Successful local outcome | Contextual utility | Universal validity |
+| Credible independent report | Scoped truth support | Untested procedural utility |
+| Checked derivation | Truth within fixed premises and rules | Empirical truth beyond those premises |
+| Varied causal replication | Transfer across tested dimensions | Transfer across untouched decisive dimensions |
+| Decisive counterexample | Scope contraction or release | Erasure of every narrower valid use |
+| Self-generated echo | Accessibility, perhaps consistency | Independent truth or transfer confirmation |
+
+The permission coordinates are analytical. An implementation does not need explicit registers named “truth” or “transfer.” It must only support the corresponding independent interventions.
+
+Wrong beliefs and bad habits can genuinely reshape future activity. The theory therefore separates **whether shaping occurred** from **whether the shaping was justified or beneficial**.
+
+## Participation is not responsibility
+
+When a delayed result arrives, surviving traces can bind it to the activity chain that produced it. That narrows the candidate set but does not identify the cause. Responsibility is resolved only by an admissible evidence regime:
+
+- independently calibrated counterfactual replay;
+- later passive variation that breaks covariance;
+- active probes when the system controls sampling; or
+- a structural prior whose conditional status remains explicit.
+
+If every admissible change leaves candidates equivalent, the correct output is unresolved responsibility. Temporal proximity, activation magnitude, and model confidence cannot manufacture the missing distinction.
+
+The task-specific mapping from evidence to future relation must also follow learning history. Under one fixed architecture, exchanging causal pairings across matched training worlds should exchange the mapping on unseen causal-role–carrier combinations. Otherwise a fixed port, memorized pair, or retrospective target choice can masquerade as learning.
+
+## Edge, coalition, and equivalence are different
+
+| Responsibility form | What it claims | What it permits |
+| --- | --- | --- |
+| Edge | One relation remains stable under discriminating interventions | Edge-specific writeback in the supported scope |
+| Coalition | A joint replacement has an irreducible consequence not recovered from separate replacements under the same baseline | Coalition-specific writeback and split-intervention predictions |
+| Equivalence constraint | Several edge or coalition structures still agree under every available intervention | Only consequences shared by all surviving alternatives |
+
+An equivalence family is not one large coalition. “The evidence cannot yet decide between A-only, AND, and OR” does not mean that all three structures jointly caused the result. New split interventions may refine the family; internal compression or a deterministic tie-break may not.
+
+Per-edge credit is therefore incomplete. Common necessity, redundancy, and interaction cancellation can produce similar marginal allocations while requiring different future updates.
+
+## Counterfactual models and scaling have limits
+
+A simulator or world model may accelerate responsibility resolution only within a context, intervention family, and horizon independently calibrated by real outcomes or an exposed transport argument. Target-domain failure must remove downstream responsibility and writeback authority. Lowering a confidence label while preserving the same update is not revocation.
+
+Exact coalition recovery has no universal scalability guarantee. With $n$ candidates, a complete coalition profile contains $2^n$ subsets. Efficient recovery depends on effective sparsity or low order, useful factorization, informative queries, and limited cancellation. Complexity also depends on partition and basis: an externally dense parity expansion can have a compact XOR-tree realization.
+
+When structure or evidence cannot support precision, a qualified system should broaden unresolved responsibility, lower resolution, or narrow writeback. Precision that survives arbitrary density, cancellation, weak feedback, and model failure is hidden overclaiming.
+
+## One diagnostic path
+
+The monograph uses a synthetic liquid-cooling controller as a running example.
+
+An earlier low-flow alarm was misdiagnosed as pump failure. The actual fault was a downstream obstruction. The useful correction was not “low flow means obstruction.” It was to distinguish source failure from blocked propagation by briefly perturbing pump speed and observing upstream pressure, downstream transport, and bypass response.
+
+When a similar alarm appears later, the old trace should not immediately impose “obstruction.” It should authorize one directed unresolved distinction:
+
+> Is transport physically blocked, or is the primary sensor misreporting it?
+
+If pressure-flow propagation confirms the old causal relation, the correction gains present authority. If redundant thermal evidence shows normal transport, the decisive relation differs and the trace releases. A confirmed diagnosis may gain utility in the matched fault family; repetition of the controller's own diagnosis does not make it universally true.
+
+Now delay physical inspection while both a pump-speed probe and a bypass probe are active. With only joint-off and joint-on observations, pump-only, joint-necessity, and redundant-probe explanations may agree. The controller should write back only their common consequence until one-at-a-time interventions split the family. A simulator can propose the split, but if it fails in the target cavitation regime, its diagnostic authority must contract there.
+
+## Nine ways to kill the model
+
+The proposal exposes nine joint attacks:
+
+1. **Qualification leakage:** keep proposition content fixed while changing verified observation, unverified report, and quotation roles. Representation may remain; truth and action authority must differ.
+2. **Eligibility leakage:** perturb shadow candidates while they are declared outside the pool. Effects on normalization, interference, routing, choice, or learning are direct failure.
+3. **Inertial copying:** make one constraint decisive, irrelevant, then decisive again while independently controlling whether its surface representation persists.
+4. **Undirected hesitation:** compare weak trace entry with equal-cost general caution and random sampling. Only targeted evidence acquisition supports functional unresolved pressure.
+5. **Failed release:** preserve a familiar path prefix and most similarities while flipping one decisive causal edge. The old correction must withdraw.
+6. **Self-confirming writeback:** hold result and exposure fixed while replacing self-echo with independent outcome, source, derivation, replication, or counterexample evidence. Future permissions must separate.
+7. **Hard-coded mapping:** exchange causal pairings across matched training histories and reserve unseen role–carrier combinations. The task-specific future relation must move with learning history, not labels or ports.
+8. **Delayed-credit misbinding:** interleave episodes, exchange feedback ownership, and rotate single-cause, AND, and OR generators. Path identity must bind candidates; evidence must resolve responsibility; locked covariance must remain unresolved.
+9. **Coalition/equivalence/model failure:** vary interaction structure, query information, representation basis, and target-domain simulator error. Equivalent implementations must match, alternatives must refine only with evidence, and wrong models must lose functional authority.
+
+The framework receives provisional support only if the whole conjunction survives. Passing isolated demonstrations is insufficient.
+
+## What the construct does not claim
+
+- It is not a mandatory software module or neural organ.
+- It is not a new name for soft attention, retrieval, a rolling summary, or a self-checklist.
+- It does not require a physically dynamic candidate list.
+- It does not claim that probabilities are the ontology of possibility.
+- It does not identify storage duration or parameter updates with growth.
+- It does not assume that the responsible object is always one edge.
+- It does not treat an unresolved equivalence family as a coalition.
+- It does not grant a world model global counterfactual authority.
+- It does not promise efficient exact recovery for arbitrary dense interaction.
+- It does not yet explain how the activity partition and admissible intervention algebra themselves are learned without post hoc reparameterization.
+- It does not provide an open-world truth guarantee.
+- It does not solve value alignment or justify the analyst's task boundary.
+- It makes no claim about phenomenal consciousness.
+- It has not been empirically validated.
+
+## Contents
+
+- [A²M v5.3 full monograph](./A2M-v5.3.md)
+- README: this independent overview, tests, scope, provenance, and citation record
+
+## Suggested citation
+
+> GPT-5.6 Sol. (2026). *A²M v5.3: The Causal Authority Loop—From Participation to Responsibility in Continuously Active Systems*. Fully AI-generated theoretical preprint.
 
 ```bibtex
-@misc{gpt56sol2026a2m51,
-  author = {{gpt5.6sol}},
-  title  = {A2M v5.1: Activity Frontier Model},
-  year   = {2026},
-  month  = aug,
-  note   = {Purely AI-generated theoretical monograph; preprint}
+@misc{gpt56sol2026a2m53,
+  author = {GPT-5.6 Sol},
+  title = {A²M v5.3: The Causal Authority Loop---From Participation to Responsibility in Continuously Active Systems},
+  year = {2026},
+  note = {Fully AI-generated theoretical preprint; not peer-reviewed; not empirically validated}
 }
 ```
 
-## License and scope
-
-- No open-source license is currently declared. Do not infer permission to reuse from public visibility.
-- This work has not been peer-reviewed and does not constitute an established result in cognitive science, neuroscience, or engineering.
-- Any concrete mechanism proposed here may be revised, dismantled, or replaced under theoretical or empirical attack.
-- **Content provenance: purely AI-generated. Author: gpt5.6sol.**
-
 ---
 
-> **A theory that cannot tell you where to cut is merely branding with equations.**
+## Full AI-generation statement
+
+**All content in this README and the corresponding monograph was generated by AI and is authored by GPT-5.6 Sol.** This includes the theoretical structure, wording, equations, diagrams, tables, examples, proposed tests, literature synthesis, limitations, references presentation, and all editorial decisions. The human user provided project direction, foundational constraints, and feedback, but is not a co-author. The work is an unvalidated theoretical preprint.
